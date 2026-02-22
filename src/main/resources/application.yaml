@@ -3,5 +3,4 @@ ktor:
     modules:
       - com.friendlens.ApplicationKt.module
   deployment:
-    port: 8080
-    port: ${?PORT}
+    port: ${PORT:-8080}
