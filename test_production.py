@@ -15,10 +15,10 @@ with open('.env', 'r') as f:
 SUPABASE_URL = env_vars.get('SUPABASE_URL')
 SUPABASE_ANON_KEY = env_vars.get('SUPABASE_KEY')
 if not SUPABASE_ANON_KEY:
-    SUPABASE_ANON_KEY = "sb_publishable_NHrcR2QqwZfaN7dLicNiKA_Sq1j9Vtn" # Fallback
+    SUPABASE_ANON_KEY = "xxxx" # Use value from .env
 
-EMAIL = "satyam@gmail.com"
-PASSWORD = "satyam123"
+EMAIL = env_vars.get("TEST_USER_EMAIL", "xxxx@example.com")
+PASSWORD = env_vars.get("TEST_USER_PASSWORD", "xxxx")
 BASE_URL = "https://friendlens-backend.onrender.com"
 
 print(f"Logging in {EMAIL}...")

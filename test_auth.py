@@ -5,8 +5,8 @@ import json
 import uuid
 from datetime import datetime, timedelta
 
-SECRET = "KbgG5Mg5xaVbqxIX7A9yZxWRJQvnAt/q8Mn/0MiX9JarcQ/XtY4WPkRVralqbFWcTuDsSwl87cmOkqwSi2vY9Q=="
-user_id = "5a0ff5ac-d487-448b-862a-c0634257c218"
+SECRET = "your_jwt_secret_xxxx"
+user_id = "your_test_user_uuid_xxxx"
 
 def test_token(role, aud, exp_delta_hours):
     payload = {

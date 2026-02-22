@@ -6,9 +6,8 @@ import uuid
 from datetime import datetime, timedelta
 
 # 1. Provide your secret from the .env directly to generate a fake JWT that Ktor will trust
-SECRET = "KbgG5Mg5xaVbqxIX7A9yZxWRJQvnAt/q8Mn/0MiX9JarcQ/XtY4WPkRVralqbFWcTuDsSwl87cmOkqwSi2vY9Q=="
-
-user_id = "5a0ff5ac-d487-448b-862a-c0634257c218" # A generated static uuid for test user.
+SECRET = "your_jwt_secret_xxxx"
+user_id = "your_test_user_uuid_xxxx" # A generated static uuid for test user.
 
 # 2. Build exactly what Supabase issues
 payload = {
