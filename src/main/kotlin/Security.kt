@@ -1,26 +1,30 @@
 package com.friendlens
 
 import com.auth0.jwt.JWT
-import com.auth0.jwt.algorithms.Algorithm
+import com.auth0.jwk.JwkProviderBuilder
 import io.ktor.http.*
 import io.ktor.server.application.*
+import java.net.URL
+import java.util.concurrent.TimeUnit
 import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
 import io.ktor.server.response.*
 
 fun Application.configureSecurity() {
-    val jwtSecret = EnvConfig.getOrThrow("SUPABASE_JWT_SECRET")
+    val supabaseUrl = EnvConfig.getOrThrow("SUPABASE_URL")
+    
+    val jwksUrl = URL("$supabaseUrl/auth/v1/.well-known/jwks.json")
+    val jwkProvider = JwkProviderBuilder(jwksUrl)
+        .cached(10, 24, TimeUnit.HOURS)
+        .rateLimited(10, 1, TimeUnit.MINUTES)
+        .build()
 
     install(Authentication) {
         jwt("auth-jwt") {
             realm = "FriendLens Backend"
-            verifier(
-                JWT
-                    .require(Algorithm.HMAC256(jwtSecret))
-                    // Supabase issues tokens without explicitly matching an audience usually for simple access, 
-                    // or you can configure `withAudience("authenticated")`. Let's keep it relaxed or check "aud" manually.
-                    .build()
-            )
+            verifier(jwkProvider, "$supabaseUrl/auth/v1") {
+                acceptLeeway(5)
+            }
             validate { credential ->
                 // The "role" claim usually distinguishes auth vs anon in Supabase
                 val role = credential.payload.getClaim("role").asString()
