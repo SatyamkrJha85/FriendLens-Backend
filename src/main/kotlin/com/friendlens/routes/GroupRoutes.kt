@@ -186,8 +186,15 @@ fun Route.groupRoutes() {
                     return@get
                 }
 
-                val userId = UUID.fromString(userIdStr)
-                val groupId = UUID.fromString(groupIdStr)
+                val userId: UUID
+                val groupId: UUID
+                try {
+                    userId = UUID.fromString(userIdStr)
+                    groupId = UUID.fromString(groupIdStr)
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid group ID format"))
+                    return@get
+                }
 
                 try {
                     val groupDetail = transaction {
