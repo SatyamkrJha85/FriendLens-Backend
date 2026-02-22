@@ -22,6 +22,10 @@ object TestTable : Table("test_table") {
     override val primaryKey = PrimaryKey(id)
 }
 
+object DatabaseSingleton {
+    lateinit var database: Database
+}
+
 fun Application.configureDatabases() {
     val jdbcUrl = EnvConfig.getOrThrow("JDBC_DATABASE_URL")
     val user = EnvConfig.getOrThrow("DB_USER")
@@ -40,7 +44,7 @@ fun Application.configureDatabases() {
 
     try {
         val dataSource = HikariDataSource(hikariConfig)
-        Database.connect(dataSource)
+        DatabaseSingleton.database = Database.connect(dataSource)
 
         transaction {
             SchemaUtils.create(TestTable, Users, Groups, GroupMembers, Photos)
