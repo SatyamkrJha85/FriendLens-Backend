@@ -37,8 +37,15 @@ fun Route.photoRoutes() {
                     return@get
                 }
 
-                val userId = UUID.fromString(userIdStr)
-                val groupId = UUID.fromString(groupIdStr)
+                val userId: UUID
+                val groupId: UUID
+                try {
+                    userId = UUID.fromString(userIdStr)
+                    groupId = UUID.fromString(groupIdStr)
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid group ID format"))
+                    return@get
+                }
 
                 try {
                     val photos = transaction {
@@ -98,8 +105,15 @@ fun Route.photoRoutes() {
                     return@post
                 }
 
-                val userId = UUID.fromString(userIdStr)
-                val groupId = UUID.fromString(groupIdStr)
+                val userId: UUID
+                val groupId: UUID
+                try {
+                    userId = UUID.fromString(userIdStr)
+                    groupId = UUID.fromString(groupIdStr)
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid group ID format"))
+                    return@post
+                }
 
                 // 1. Check if user belongs to this group
                 val isMember = transaction {
@@ -121,7 +135,7 @@ fun Route.photoRoutes() {
 
                 multipart.forEachPart { part ->
                     if (part is io.ktor.http.content.PartData.FileItem) {
-                        originalFileName = part.originalFileName as String
+                        originalFileName = part.originalFileName ?: "image.jpg"
                         fileBytes = part.streamProvider().readBytes()
                     } else if (part is io.ktor.http.content.PartData.FormItem) {
                         if (part.name == "capturedAt") {
