@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.3.0"
+    kotlin("plugin.serialization") version "2.3.0"
     id("io.ktor.plugin") version "3.4.0"
 }
 
@@ -29,6 +30,7 @@ dependencies {
 
     // --- Security ---
     implementation("io.ktor:ktor-server-auth")
+    implementation("io.ktor:ktor-server-auth-jwt")
 
     // --- API Docs ---
     implementation("io.ktor:ktor-openapi-schema")
@@ -47,6 +49,22 @@ dependencies {
 
     // --- Logging ---
     implementation("ch.qos.logback:logback-classic:1.5.16")
+
+    // --- Serialization ---
+    implementation("io.ktor:ktor-serialization-kotlinx-json")
+    implementation("io.ktor:ktor-server-content-negotiation")
+
+    // --- Database (Exposed + Postgres + HikariCP) ---
+    implementation("org.postgresql:postgresql:42.7.3")
+    implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("org.jetbrains.exposed:exposed-core:0.55.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.55.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.55.0")
+    implementation("org.jetbrains.exposed:exposed-java-time:0.55.0")
+
+    // --- AWS S3 & Dotenv ---
+    implementation("software.amazon.awssdk:s3:2.25.11")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 
     // --- Testing ---
     testImplementation("io.ktor:ktor-server-test-host")

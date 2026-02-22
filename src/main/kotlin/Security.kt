@@ -1,26 +1,43 @@
 package com.friendlens
 
-import com.asyncapi.kotlinasyncapi.context.service.AsyncApiExtension
-import com.asyncapi.kotlinasyncapi.ktor.AsyncApiPlugin
-import com.ucasoft.ktor.simpleCache.SimpleCache
-import com.ucasoft.ktor.simpleCache.cacheOutput
-import com.ucasoft.ktor.simpleMemoryCache.*
-import com.ucasoft.ktor.simpleRedisCache.*
+import com.auth0.jwt.JWT
+import com.auth0.jwt.algorithms.Algorithm
 import io.ktor.http.*
-import io.ktor.http.content.*
-import io.ktor.openapi.*
 import io.ktor.server.application.*
-import io.ktor.server.plugins.cachingheaders.*
-import io.ktor.server.plugins.compression.*
-import io.ktor.server.plugins.cors.routing.*
-import io.ktor.server.plugins.defaultheaders.*
-import io.ktor.server.plugins.forwardedheaders.*
-import io.ktor.server.plugins.openapi.*
-import io.ktor.server.plugins.swagger.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.jwt.*
 import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import kotlin.random.Random
-import kotlin.time.Duration.Companion.seconds
 
 fun Application.configureSecurity() {
+    val jwtSecret = EnvConfig.getOrThrow("SUPABASE_JWT_SECRET")
+
+    install(Authentication) {
+        jwt("auth-jwt") {
+            realm = "FriendLens Backend"
+            verifier(
+                JWT
+                    .require(Algorithm.HMAC256(jwtSecret))
+                    // Supabase issues tokens without explicitly matching an audience usually for simple access, 
+                    // or you can configure `withAudience("authenticated")`. Let's keep it relaxed or check "aud" manually.
+                    .build()
+            )
+            validate { credential ->
+                // The "role" claim usually distinguishes auth vs anon in Supabase
+                val role = credential.payload.getClaim("role").asString()
+                val sub = credential.payload.getClaim("sub").asString()
+                val audList = credential.payload.audience
+                val audStr = credential.payload.getClaim("aud").asString()
+                val isAuthedAudience = audList?.contains("authenticated") == true || audStr == "authenticated" || audStr == null
+
+                if (sub != null && role == "authenticated" && isAuthedAudience) {
+                    JWTPrincipal(credential.payload)
+                } else {
+                    null
+                }
+            }
+            challenge { defaultScheme, realm ->
+                call.respond(HttpStatusCode.Unauthorized, mapOf("status" to "error", "message" to "Token is missing, invalid, or expired"))
+            }
+        }
+    }
 }

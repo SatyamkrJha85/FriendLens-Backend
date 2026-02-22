@@ -1,5 +1,9 @@
 package com.friendlens
 
+import com.friendlens.routes.testRoutes
+import com.friendlens.routes.userRoutes
+import com.friendlens.routes.groupRoutes
+import com.friendlens.routes.photoRoutes
 import com.asyncapi.kotlinasyncapi.context.service.AsyncApiExtension
 import com.asyncapi.kotlinasyncapi.ktor.AsyncApiPlugin
 import com.ucasoft.ktor.simpleCache.SimpleCache
@@ -25,7 +29,13 @@ import kotlin.time.Duration.Companion.seconds
 fun Application.configureRouting() {
     routing {
         get("/") {
-            call.respondText("Hello World!")
+            call.respondText("FriendLens API MVP is running!")
         }
+        
+        // Mount API endpoints
+        testRoutes()
+        userRoutes()
+        groupRoutes()
+        photoRoutes()
     }
 }

@@ -706,6 +706,36 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="apiGroupsGet" class="">
+                      <a href="#api-Default-apiGroupsGet">apiGroupsGet</a>
+                    </li>
+                    <li data-group="Default" data-name="apiGroupsIdGet" class="">
+                      <a href="#api-Default-apiGroupsIdGet">apiGroupsIdGet</a>
+                    </li>
+                    <li data-group="Default" data-name="apiGroupsIdPhotosGet" class="">
+                      <a href="#api-Default-apiGroupsIdPhotosGet">apiGroupsIdPhotosGet</a>
+                    </li>
+                    <li data-group="Default" data-name="apiGroupsIdPhotosUploadPost" class="">
+                      <a href="#api-Default-apiGroupsIdPhotosUploadPost">apiGroupsIdPhotosUploadPost</a>
+                    </li>
+                    <li data-group="Default" data-name="apiGroupsJoinPost" class="">
+                      <a href="#api-Default-apiGroupsJoinPost">apiGroupsJoinPost</a>
+                    </li>
+                    <li data-group="Default" data-name="apiGroupsPost" class="">
+                      <a href="#api-Default-apiGroupsPost">apiGroupsPost</a>
+                    </li>
+                    <li data-group="Default" data-name="apiTestDbGet" class="">
+                      <a href="#api-Default-apiTestDbGet">apiTestDbGet</a>
+                    </li>
+                    <li data-group="Default" data-name="apiTestS3Get" class="">
+                      <a href="#api-Default-apiTestS3Get">apiTestS3Get</a>
+                    </li>
+                    <li data-group="Default" data-name="apiUsersMeGet" class="">
+                      <a href="#api-Default-apiUsersMeGet">apiUsersMeGet</a>
+                    </li>
+                    <li data-group="Default" data-name="apiUsersMePut" class="">
+                      <a href="#api-Default-apiUsersMePut">apiUsersMePut</a>
+                    </li>
                     <li data-group="Default" data-name="defaultGet" class="">
                       <a href="#api-Default-defaultGet">defaultGet</a>
                     </li>
@@ -742,6 +772,2161 @@
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
+                    <div id="api-Default-apiGroupsGet">
+                      <article id="api-Default-apiGroupsGet-0" data-group="User" data-name="apiGroupsGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiGroupsGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/groups</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiGroupsGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiGroupsGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/groups"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiGroupsGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiGroupsGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiGroupsGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiGroupsGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiGroupsGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiGroupsGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiGroupsGetWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiGroupsGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiGroupsGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiGroupsGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiGroupsGetExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiGroupsGet();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiGroupsGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiGroupsGet();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiGroupsGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiGroupsGet();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiGroupsGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_groups_get()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiGroupsGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiGroupsIdGet">
+                      <article id="api-Default-apiGroupsIdGet-0" data-group="User" data-name="apiGroupsIdGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiGroupsIdGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/groups/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiGroupsIdGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsIdGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsIdGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiGroupsIdGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/groups/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+         id = ; //  | 
+        try {
+            apiInstance.apiGroupsIdGet(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsIdGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+         id = ; //  | 
+        try {
+            apiInstance.apiGroupsIdGet(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsIdGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+ *id = ; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiGroupsIdGetWith:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var id = ; // {{}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiGroupsIdGet(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiGroupsIdGetExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+            var id = new (); //  | 
+
+            try
+            {
+                apiInstance.apiGroupsIdGet(id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiGroupsIdGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$id = ; //  | 
+
+try {
+    $api_instance->apiGroupsIdGet($id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiGroupsIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $id = ; #  | 
+
+eval { 
+    $api_instance->apiGroupsIdGet(id => $id);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiGroupsIdGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+id =  #  | 
+
+try: 
+    api_instance.api_groups_id_get(id)
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiGroupsIdGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_apiGroupsIdGet_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiGroupsIdPhotosGet">
+                      <article id="api-Default-apiGroupsIdPhotosGet-0" data-group="User" data-name="apiGroupsIdPhotosGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiGroupsIdPhotosGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/groups/{id}/photos</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiGroupsIdPhotosGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiGroupsIdPhotosGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/groups/{id}/photos"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+         id = ; //  | 
+        try {
+            apiInstance.apiGroupsIdPhotosGet(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsIdPhotosGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+         id = ; //  | 
+        try {
+            apiInstance.apiGroupsIdPhotosGet(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsIdPhotosGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+ *id = ; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiGroupsIdPhotosGetWith:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var id = ; // {{}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiGroupsIdPhotosGet(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiGroupsIdPhotosGetExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+            var id = new (); //  | 
+
+            try
+            {
+                apiInstance.apiGroupsIdPhotosGet(id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiGroupsIdPhotosGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$id = ; //  | 
+
+try {
+    $api_instance->apiGroupsIdPhotosGet($id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiGroupsIdPhotosGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $id = ; #  | 
+
+eval { 
+    $api_instance->apiGroupsIdPhotosGet(id => $id);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiGroupsIdPhotosGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+id =  #  | 
+
+try: 
+    api_instance.api_groups_id_photos_get(id)
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiGroupsIdPhotosGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_apiGroupsIdPhotosGet_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiGroupsIdPhotosUploadPost">
+                      <article id="api-Default-apiGroupsIdPhotosUploadPost-0" data-group="User" data-name="apiGroupsIdPhotosUploadPost" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiGroupsIdPhotosUploadPost</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/groups/{id}/photos/upload</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsIdPhotosUploadPost-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiGroupsIdPhotosUploadPost-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/groups/{id}/photos/upload"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+         id = ; //  | 
+        try {
+            apiInstance.apiGroupsIdPhotosUploadPost(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsIdPhotosUploadPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+         id = ; //  | 
+        try {
+            apiInstance.apiGroupsIdPhotosUploadPost(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsIdPhotosUploadPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+ *id = ; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiGroupsIdPhotosUploadPostWith:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var id = ; // {{}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiGroupsIdPhotosUploadPost(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiGroupsIdPhotosUploadPostExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+            var id = new (); //  | 
+
+            try
+            {
+                apiInstance.apiGroupsIdPhotosUploadPost(id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiGroupsIdPhotosUploadPost: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$id = ; //  | 
+
+try {
+    $api_instance->apiGroupsIdPhotosUploadPost($id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiGroupsIdPhotosUploadPost: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $id = ; #  | 
+
+eval { 
+    $api_instance->apiGroupsIdPhotosUploadPost(id => $id);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiGroupsIdPhotosUploadPost: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsIdPhotosUploadPost-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+id =  #  | 
+
+try: 
+    api_instance.api_groups_id_photos_upload_post(id)
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiGroupsIdPhotosUploadPost: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_apiGroupsIdPhotosUploadPost_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiGroupsJoinPost">
+                      <article id="api-Default-apiGroupsJoinPost-0" data-group="User" data-name="apiGroupsJoinPost" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiGroupsJoinPost</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/groups/join</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiGroupsJoinPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsJoinPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsJoinPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsJoinPost-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiGroupsJoinPost-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/groups/join"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiGroupsJoinPost();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsJoinPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiGroupsJoinPost();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsJoinPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiGroupsJoinPostWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiGroupsJoinPost(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiGroupsJoinPostExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiGroupsJoinPost();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiGroupsJoinPost: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiGroupsJoinPost();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiGroupsJoinPost: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiGroupsJoinPost();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiGroupsJoinPost: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsJoinPost-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_groups_join_post()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiGroupsJoinPost: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiGroupsPost">
+                      <article id="api-Default-apiGroupsPost-0" data-group="User" data-name="apiGroupsPost" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiGroupsPost</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/groups</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiGroupsPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiGroupsPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiGroupsPost-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiGroupsPost-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/groups"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiGroupsPost-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiGroupsPost();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiGroupsPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiGroupsPost();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiGroupsPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiGroupsPost-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiGroupsPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiGroupsPostWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsPost-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiGroupsPost(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiGroupsPost-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiGroupsPost-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiGroupsPostExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiGroupsPost();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiGroupsPost: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsPost-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiGroupsPost();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiGroupsPost: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsPost-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiGroupsPost();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiGroupsPost: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiGroupsPost-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_groups_post()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiGroupsPost: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiTestDbGet">
+                      <article id="api-Default-apiTestDbGet-0" data-group="User" data-name="apiTestDbGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiTestDbGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/test/db</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiTestDbGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiTestDbGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiTestDbGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiTestDbGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiTestDbGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+"//api/test/db"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiTestDbGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiTestDbGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiTestDbGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiTestDbGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiTestDbGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiTestDbGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiTestDbGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiTestDbGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiTestDbGetWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestDbGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiTestDbGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiTestDbGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiTestDbGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiTestDbGetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiTestDbGet();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiTestDbGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestDbGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiTestDbGet();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiTestDbGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestDbGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiTestDbGet();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiTestDbGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestDbGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_test_db_get()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiTestDbGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiTestS3Get">
+                      <article id="api-Default-apiTestS3Get-0" data-group="User" data-name="apiTestS3Get" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiTestS3Get</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/test/s3</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiTestS3Get-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiTestS3Get-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiTestS3Get-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiTestS3Get-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiTestS3Get-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+"//api/test/s3"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiTestS3Get-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiTestS3Get();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiTestS3Get");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiTestS3Get-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiTestS3Get();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiTestS3Get");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiTestS3Get-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiTestS3Get-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiTestS3GetWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestS3Get-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiTestS3Get(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiTestS3Get-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiTestS3Get-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiTestS3GetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiTestS3Get();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiTestS3Get: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestS3Get-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiTestS3Get();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiTestS3Get: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestS3Get-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiTestS3Get();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiTestS3Get: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiTestS3Get-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_test_s3_get()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiTestS3Get: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiUsersMeGet">
+                      <article id="api-Default-apiUsersMeGet-0" data-group="User" data-name="apiUsersMeGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiUsersMeGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/users/me</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiUsersMeGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiUsersMeGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiUsersMeGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMeGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiUsersMeGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/users/me"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiUsersMeGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiUsersMeGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiUsersMeGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiUsersMeGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiUsersMeGetWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiUsersMeGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiUsersMeGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiUsersMeGetExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiUsersMeGet();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiUsersMeGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiUsersMeGet();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiUsersMeGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiUsersMeGet();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiUsersMeGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMeGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_users_me_get()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiUsersMeGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-apiUsersMePut">
+                      <article id="api-Default-apiUsersMePut-0" data-group="User" data-name="apiUsersMePut" data-version="0">
+                        <div class="pull-left">
+                          <h1>apiUsersMePut</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/users/me</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-apiUsersMePut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiUsersMePut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-apiUsersMePut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-apiUsersMePut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-apiUsersMePut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//api/users/me"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-apiUsersMePut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiUsersMePut();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiUsersMePut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-apiUsersMePut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.apiUsersMePut();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#apiUsersMePut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-apiUsersMePut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-apiUsersMePut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance apiUsersMePutWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMePut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyApi = require('my_api');
+var defaultClient = MyApi.ApiClient.instance;
+
+
+var api = new MyApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.apiUsersMePut(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-apiUsersMePut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-apiUsersMePut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class apiUsersMePutExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.apiUsersMePut();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.apiUsersMePut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMePut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->apiUsersMePut();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->apiUsersMePut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMePut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->apiUsersMePut();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->apiUsersMePut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-apiUsersMePut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.api_users_me_put()
+except ApiException as e:
+    print("Exception when calling DefaultApi->apiUsersMePut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Default-defaultGet">
                       <article id="api-Default-defaultGet-0" data-group="User" data-name="defaultGet" data-version="0">
                         <div class="pull-left">
