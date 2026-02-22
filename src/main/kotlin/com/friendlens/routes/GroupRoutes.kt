@@ -5,9 +5,11 @@ import com.friendlens.models.GroupMembers
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
+import com.friendlens.plugins.StorageService
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.http.content.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
@@ -15,7 +17,8 @@ import org.jetbrains.exposed.sql.and
 import java.util.UUID
 import java.time.LocalDateTime
 import kotlinx.serialization.json.*
-import kotlinx.serialization.encodeToString
+import software.amazon.awssdk.core.sync.RequestBody
+import software.amazon.awssdk.services.s3.model.PutObjectRequest
 
 fun Route.groupRoutes() {
     route("/api/groups") {
@@ -32,26 +35,70 @@ fun Route.groupRoutes() {
             post {
                 val principal = call.principal<JWTPrincipal>()
                 val userIdStr = principal?.payload?.getClaim("sub")?.asString()
-                val params = call.receive<Map<String, String>>()
                 
-                val name = params["name"]
-                val description = params["description"]
+                if (userIdStr == null) {
+                    call.respond(mapOf("status" to "error", "message" to "Missing user ID"))
+                    return@post
+                }
+
+                val multipart = call.receiveMultipart()
+                var name: String? = null
+                var description: String? = null
+                var fileBytes: ByteArray? = null
+                var originalFileName: String? = null
+
+                multipart.forEachPart { part ->
+                    when (part) {
+                        is PartData.FormItem -> {
+                            if (part.name == "name") name = part.value
+                            if (part.name == "description") description = part.value
+                        }
+                        is PartData.FileItem -> {
+                            originalFileName = part.originalFileName
+                            fileBytes = part.streamProvider().readBytes()
+                        }
+                        else -> {}
+                    }
+                    part.dispose()
+                }
                 
-                if (userIdStr == null || name == null) {
-                    call.respond(mapOf("status" to "error", "message" to "Missing user ID or group name"))
+                if (name == null) {
+                    call.respond(mapOf("status" to "error", "message" to "Missing group name"))
                     return@post
                 }
                 
                 val userId = UUID.fromString(userIdStr)
                 val newGroupId = UUID.randomUUID()
                 val code = generateJoinCode()
+                var imageUrl: String? = null
+
+                // Handle Image Upload if provided
+                if (fileBytes != null) {
+                    val fileExtension = originalFileName?.substringAfterLast('.', "jpg") ?: "jpg"
+                    val s3Key = "groups/$newGroupId/cover.$fileExtension"
+                    try {
+                        val putReq = PutObjectRequest.builder()
+                            .bucket(StorageService.bucketName)
+                            .key(s3Key)
+                            .contentType("image/jpeg") 
+                            .build()
+
+                        StorageService.s3.putObject(putReq, RequestBody.fromBytes(fileBytes!!))
+                        imageUrl = "${StorageService.s3.utilities().getUrl { it.bucket(StorageService.bucketName).key(s3Key) }}"
+                    } catch (e: Exception) {
+                        // Log error but maybe continue without image? For now fail.
+                        call.respond(mapOf("status" to "error", "message" to "S3 Upload failed: ${e.message}"))
+                        return@post
+                    }
+                }
 
                 transaction {
                     // Create the Group
                     Groups.insert {
                         it[id] = newGroupId
-                        it[Groups.name] = name
+                        it[Groups.name] = name!!
                         it[Groups.description] = description
+                        it[Groups.coverImageUrl] = imageUrl
                         it[ownerId] = userId
                         it[joinCode] = code
                         it[createdAt] = LocalDateTime.now()
@@ -70,9 +117,10 @@ fun Route.groupRoutes() {
                     put("status", "success")
                     put("group", buildJsonObject {
                         put("id", newGroupId.toString())
-                        put("name", name)
+                        put("name", name!!)
                         put("description", description ?: "")
                         put("joinCode", code)
+                        put("coverImageUrl", imageUrl ?: "")
                     })
                 })
             }

@@ -62,16 +62,14 @@ Updates the user's display name or avatar URL.
 Groups are collaborative albums where friends can upload and view photos.
 
 ### 1. Create a Group
-Creates a new group, making the creator the `owner`, and generates a unique random 6-character `joinCode`.
+Creates a new group, making the creator the `owner`, and generates a unique random 6-character `joinCode`. Optionally, you can upload a cover image for the group.
 
 * **Endpoint:** `POST /api/groups`
-* **Body (JSON):**
-```json
-{
-  "name": "Trip to Hawaii",
-  "description": "2026 vacay!"
-}
-```
+* **Headers:** `Content-Type: multipart/form-data`
+* **Form Data Parts:**
+  * `name`: (Text type, required, the name of the group)
+  * `description`: (Text type, optional, the group description)
+  * `image`: (File type, optional, the cover image binary bytes)
 * **Response:**
 ```json
 {
@@ -80,7 +78,8 @@ Creates a new group, making the creator the `owner`, and generates a unique rand
     "id": "group-uuid-here",
     "name": "Trip to Hawaii",
     "description": "2026 vacay!",
-    "joinCode": "AB12CD"
+    "joinCode": "AB12CD",
+    "coverImageUrl": "https://bucket.../cover.jpg"
   }
 }
 ```
