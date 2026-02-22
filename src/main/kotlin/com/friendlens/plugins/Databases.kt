@@ -5,6 +5,8 @@ import com.friendlens.models.Groups
 import com.friendlens.models.GroupMembers
 import com.friendlens.models.Users
 import com.friendlens.models.Photos
+import com.friendlens.models.Feedbacks
+import com.friendlens.models.PhotoLikes
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.application.*
@@ -47,7 +49,7 @@ fun Application.configureDatabases() {
         DatabaseSingleton.database = Database.connect(dataSource)
 
         transaction {
-            SchemaUtils.create(TestTable, Users, Groups, GroupMembers, Photos)
+            SchemaUtils.create(TestTable, Users, Groups, GroupMembers, Photos, Feedbacks, PhotoLikes)
         }
         log.info(" Postgres Database connected successfully!")
     } catch (e: Exception) {

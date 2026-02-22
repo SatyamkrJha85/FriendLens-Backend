@@ -4,6 +4,7 @@ import com.friendlens.routes.testRoutes
 import com.friendlens.routes.userRoutes
 import com.friendlens.routes.groupRoutes
 import com.friendlens.routes.photoRoutes
+import com.friendlens.routes.feedbackRoutes
 import com.asyncapi.kotlinasyncapi.context.service.AsyncApiExtension
 import com.asyncapi.kotlinasyncapi.ktor.AsyncApiPlugin
 import com.ucasoft.ktor.simpleCache.SimpleCache
@@ -37,5 +38,6 @@ fun Application.configureRouting() {
         userRoutes()
         groupRoutes()
         photoRoutes()
+        feedbackRoutes()
     }
 }

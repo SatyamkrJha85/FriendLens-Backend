@@ -16,6 +16,8 @@ import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.jetbrains.exposed.sql.deleteWhere
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import software.amazon.awssdk.core.sync.RequestBody
 import software.amazon.awssdk.services.s3.model.PutObjectRequest
 import java.time.LocalDateTime
@@ -194,6 +196,108 @@ fun Route.photoRoutes() {
 
                 } catch (e: Exception) {
                     call.respond(mapOf("status" to "error", "message" to "Upload to S3 failed: ${e.message}"))
+                }
+            }
+
+            post("/{photoId}/like") {
+                val groupIdStr = call.parameters["id"]
+                val photoIdStr = call.parameters["photoId"]
+                val principal = call.principal<JWTPrincipal>()
+                val userIdStr = principal?.payload?.getClaim("sub")?.asString()
+
+                if (groupIdStr == null || photoIdStr == null || userIdStr == null) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid request"))
+                    return@post
+                }
+
+                val userId: UUID
+                val groupId: UUID
+                val photoId: UUID
+                try {
+                    userId = UUID.fromString(userIdStr)
+                    groupId = UUID.fromString(groupIdStr)
+                    photoId = UUID.fromString(photoIdStr)
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid ID format"))
+                    return@post
+                }
+
+                try {
+                    transaction {
+                        val isMember = GroupMembers.selectAll().where { 
+                            (GroupMembers.groupId eq groupId) and (GroupMembers.userId eq userId) 
+                        }.count() > 0
+
+                        if (!isMember) {
+                            throw Exception("You do not belong to this group")
+                        }
+
+                        val existingLike = com.friendlens.models.PhotoLikes.selectAll().where { 
+                            (com.friendlens.models.PhotoLikes.photoId eq photoId) and (com.friendlens.models.PhotoLikes.userId eq userId) 
+                        }.singleOrNull()
+
+                        if (existingLike == null) {
+                            com.friendlens.models.PhotoLikes.insert {
+                                it[com.friendlens.models.PhotoLikes.photoId] = photoId
+                                it[com.friendlens.models.PhotoLikes.userId] = userId
+                                it[likedAt] = LocalDateTime.now()
+                            }
+                        }
+                    }
+
+                    call.respond(buildJsonObject {
+                        put("status", "success")
+                        put("message", "Photo liked successfully")
+                    })
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to e.localizedMessage))
+                }
+            }
+
+            delete("/{photoId}/like") {
+                val groupIdStr = call.parameters["id"]
+                val photoIdStr = call.parameters["photoId"]
+                val principal = call.principal<JWTPrincipal>()
+                val userIdStr = principal?.payload?.getClaim("sub")?.asString()
+
+                if (groupIdStr == null || photoIdStr == null || userIdStr == null) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid request"))
+                    return@delete
+                }
+
+                val userId: UUID
+                val groupId: UUID
+                val photoId: UUID
+                try {
+                    userId = UUID.fromString(userIdStr)
+                    groupId = UUID.fromString(groupIdStr)
+                    photoId = UUID.fromString(photoIdStr)
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to "Invalid ID format"))
+                    return@delete
+                }
+
+                try {
+                    transaction {
+                        val isMember = GroupMembers.selectAll().where { 
+                            (GroupMembers.groupId eq groupId) and (GroupMembers.userId eq userId) 
+                        }.count() > 0
+
+                        if (!isMember) {
+                            throw Exception("You do not belong to this group")
+                        }
+
+                        com.friendlens.models.PhotoLikes.deleteWhere {
+                            (com.friendlens.models.PhotoLikes.photoId eq photoId) and (com.friendlens.models.PhotoLikes.userId eq userId)
+                        }
+                    }
+
+                    call.respond(buildJsonObject {
+                        put("status", "success")
+                        put("message", "Photo unliked successfully")
+                    })
+                } catch (e: Exception) {
+                    call.respond(mapOf("status" to "error", "message" to e.localizedMessage))
                 }
             }
         }
