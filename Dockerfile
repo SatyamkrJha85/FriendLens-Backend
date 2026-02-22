@@ -9,4 +9,4 @@ FROM eclipse-temurin:21-jre-jammy
 EXPOSE 8080:8080
 RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/*-all.jar /app/ktor-app.jar
-ENTRYPOINT ["java","-jar","/app/ktor-app.jar"]
+ENTRYPOINT ["sh", "-c", "java -server -Xms256m -Xmx256m -jar /app/ktor-app.jar -port=${PORT:-8080}"]
